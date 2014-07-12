@@ -9,3 +9,4 @@
  * License: GPL2
  */
 include 'functions.php';
+include 'wp-sms-options.php';

@@ -11,3 +11,5 @@ function detect_published_post ( $wp_sms_new_status, $wp_sms_old_status, $wp_sms
 		wp_sms_send_notification( '9806215740@messaging.sprintpcs.com', 'New Changes to your WordPress site', "This new post has been published: {$wp_sms_post_ID->post_title}" );	
 	}
 }
+
+
