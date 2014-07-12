@@ -33,7 +33,7 @@ add_action('wp_login', 'detect_user_login', 10, 2);
 // Sends SMS when a plugin is updated.
 if (get_option('wp_sms_on_plugin_update') == '1') {
 	function wp_sms_plugin_updated( $a, $b, $c ) {
-		if ( $b['type'] == 'plugin' && $b['action'] == 'update'] {
+		if ( $b['type'] == 'plugin' && $b['action'] == 'update' ) {
 			wp_sms_send_notification( $GLOBALS['wp_sms_phone'], '', "Plugin has been updated: {$c['destination_name']}");
 		}
 	}
@@ -43,7 +43,7 @@ if (get_option('wp_sms_on_plugin_update') == '1') {
 // Sends SMS when a plugin is installed.
 if (get_option('wp_sms_on_plugin_install') == '1') {
         function wp_sms_plugin_install( $a, $b, $c ) {
-                if ( $b['type'] == 'plugin' && $b['action'] == 'install'] {
+                if ( $b['type'] == 'plugin' && $b['action'] == 'install' ) {
                         wp_sms_send_notification( $GLOBALS['wp_sms_phone'], '', "Plugin has been installed: {$c['destination_name']}");
                 }
         }

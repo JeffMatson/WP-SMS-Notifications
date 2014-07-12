@@ -29,7 +29,7 @@ function update_wp_sms_settings() {
 	register_setting( 'wp_sms_settings', 'wp_sms_carrier' );
 	register_setting( 'wp_sms_settings', 'wp_sms_on_user_login' );
 	register_setting( 'wp_sms_settings', 'wp_sms_on_plugin_update' );
-	register_setting( 'wp_sms_settings', 'wp_sms_on_user_install' );
+	register_setting( 'wp_sms_settings', 'wp_sms_on_plugin_install' );
 }
 
 function wp_sms_notifications_menu(){
