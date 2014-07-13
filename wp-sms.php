@@ -1,6 +1,6 @@
 <?php
 /**
- * Plugin Name: WP SMS
+ * Plugin Name: WP SMS Notifications
  * Plugin URI: http://jeffmatson.net/wp-sms
  * Description: Send SMS notifications when things are updated.
  * Version: 0.1
