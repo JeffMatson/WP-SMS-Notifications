@@ -3,7 +3,7 @@
  * Plugin Name: WP SMS Notifications
  * Plugin URI: http://jeffmatson.net/wp-sms
  * Description: Send SMS notifications when things are updated.
- * Version: 0.1
+ * Version: 1.0
  * Author: Jeff Matson
  * Author URI: http://jeffmatson.net
  * License: GPL2
