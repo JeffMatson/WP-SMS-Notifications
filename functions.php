@@ -91,6 +91,7 @@ if ( get_option( 'wp_sms_on_plugin_install' ) == '1' ) {
 
 // Sends SMS when a post is updated
 if ( get_option('wp_sms_on_post_update' ) == '1' ) {
+	
 	function wp_sms_post_update( $post_ID, $post_after, $post_before ) {
 
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -126,6 +127,7 @@ if ( get_option( 'wp_sms_on_theme_install' ) == '1' ) {
 if ( get_option( 'wp_sms_on_theme_update' ) == '1' ) {
 
 		function wp_sms_theme_update( $a, $b, $c ) {
+
 				if ( $b['type'] == 'theme' && $b['action'] == 'update' ) {
 
 						wp_sms_send_notification( $GLOBALS['wp_sms_phone'], '', "Theme has been updated: { $c['destination_name'] }" );
@@ -135,5 +137,5 @@ if ( get_option( 'wp_sms_on_theme_update' ) == '1' ) {
 		}
 
 		add_action( 'upgrader_post_install', 'wp_sms_theme_update', 10, 3 );
-		
+
 }
