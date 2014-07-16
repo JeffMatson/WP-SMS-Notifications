@@ -4,7 +4,7 @@ Contributors: JeffMatson
 Tags: SMS, text messages, notifications
 Requires at least: 2.8
 Tested up to: 3.9.1
-Stable tag: 1.0.1
+Stable tag: 1.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -19,7 +19,7 @@ The plugin is useful to not only keep a log of changes as they are made, but to 
 Features:
 * Supports both US and international carriers.
 * No need for an external API.
-* Notifications whena post is changed.
+* Notifications when a post is changed.
 * Notifications when a user logs in.
 * Notifications when a plugin is installed or updated.
 * Notifications when a theme is installed or updated.
@@ -36,6 +36,10 @@ Features:
 All carriers support the ability to send text messages via email.  We have simply tapped into that to send all notifications.
 
 == Changelog ==
+
+= 1.0.2 =
+The "From" address is now set to admin@YOURSITEURL.COM.  Should add some extra
+identificaton.
 
 = 1.0.1 =
 Fixed bug that affected some users on the carrier selection dropdown.

@@ -1,11 +1,15 @@
 <?php
 // Defines how mail is sent.
 function wp_sms_send_notification( $wp_sms_phone_number = NULL, $wp_sms_updated = NULL, $wp_sms_updated_item = NULL ) {
-
-		mail ( $wp_sms_phone_number, $wp_sms_updated, $wp_sms_updated_item );
+		$wp_sms_site_domain = get_bloginfo( 'wpurl' );
+		$wp_sms_replace_rules = array();
+		$wp_sms_replace_rules[0] = '/http\:\/\//';
+		$wp_sms_replace_rules[1] = '/https\:\/\//';
+		$wp_sms_site_domain = preg_replace($wp_sms_replace_rules, "", $wp_sms_site_domain);		
+		$wp_sms_headers = "From: admin@{$wp_sms_site_domain}\r\n";
+		mail ( $wp_sms_phone_number, $wp_sms_updated, $wp_sms_updated_item, $wp_sms_headers );
 				
 }
-
 // Strips all symbols from the phone number
 $wp_sms_phone_unformatted = get_option( 'wp_sms_phone_number' );
 $wp_sms_phone_formatted = preg_replace('/(\W*)/', '', $wp_sms_phone_unformatted);
