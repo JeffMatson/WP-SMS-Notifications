@@ -31,6 +31,8 @@ function update_wp_sms_settings() {
 	register_setting( 'wp_sms_settings', 'wp_sms_on_plugin_update' );
 	register_setting( 'wp_sms_settings', 'wp_sms_on_plugin_install' );
         register_setting( 'wp_sms_settings', 'wp_sms_on_post_update' );
+	register_setting( 'wp_sms_settings', 'wp_sms_on_theme_update' );
+	register_setting( 'wp_sms_settings', 'wp_sms_on_theme_install' );
 }
 
 function wp_sms_notifications_menu(){
@@ -133,11 +135,9 @@ function wp_sms_notifications_menu(){
                         <th scope="row">Send SMS a plugin is updated:</th>
                          <td><input type="checkbox" name="wp_sms_on_plugin_update" value="1" <?php if (get_option('wp_sms_on_plugin_update') == '1') { echo 'checked'; }?>/></td>
                 </tr>
-                </tr>
                 <tr valign="top">
                         <th scope="row">Send SMS a theme is installed:</th>
                          <td><input type="checkbox" name="wp_sms_on_theme_install" value="1" <?php if (get_option('wp_sms_on_theme_install') == '1') { echo 'checked'; }?>/></td>
-                </tr>
                 </tr>
                 <tr valign="top">
                         <th scope="row">Send SMS a theme is updated:</th>
