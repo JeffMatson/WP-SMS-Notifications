@@ -51,68 +51,68 @@ function wp_sms_notifications_menu(){
 			<th scope="row">Cell carrier:</th>
 			<?php $wp_sms_options_carrier = get_option('wp_sms_carrier'); ?>
 		<td><select name="wp_sms_carrier" selected="<?php echo get_option('wp_sms_carrier'); ?>">
-                                <option value="@sms.3rivers.net" <?php if ( $wp_sms_options_carrier == '@sms.3rivers.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>3 River Wireless</option>
-                                <option value="@paging.acswireless.com" <?php if ( $wp_sms_options_carrier == '@paging.acswireless.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>ACS Wireless</option>
-                                <option value="@message.alltel.com" <?php if ( $wp_sms_options_carrier == '@message.alltel.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Alltel</option>
-                                <option value="@txt.att.net" <?php if ( $wp_sms_options_carrier == '@txt.att.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>AT&T</option>
-                                <option value="@bellmobility.ca" <?php if ( $wp_sms_options_carrier == '@bellmobility.ca' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Bell Canada</option>
-                                <option value="@txt.bell.ca" <?php if ( $wp_sms_options_carrier == '@txt.bell.ca' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Bell Mobility (Canada)</option>
-                                <option value="@txt.bellmobility.ca" <?php if ( $wp_sms_options_carrier == '@txt.bellmobility.ca' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Bell Mobility</option>
-                                <option value="@blueskyfrog.com" <?php if ( $wp_sms_options_carrier == '@blueskyfrog.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Blue Sky Frog</option>
-                                <option value="@sms.bluecell.com" <?php if ( $wp_sms_options_carrier == '@sms.bluecell.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Bluegrass Cellular</option>
-                                <option value="@myboostmobile.com" <?php if ( $wp_sms_options_carrier == '@myboostmobile.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Boost Mobile</option>
-                                <option value="@bplmobile.com" <?php if ( $wp_sms_options_carrier == '@bplmobile.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>BPL Mobile</option>
-                                <option value="@cwwsms.com" <?php if ( $wp_sms_options_carrier == '@cwwsms.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Carolina West Wireless</option>
-                                <option value="@mobile.celloneusa.com" <?php if ( $wp_sms_options_carrier == '@mobile.celloneusa.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Cellular One</option>
-                                <option value="@csouth1.com" <?php if ( $wp_sms_options_carrier == '@csouth1.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Cellular South</option>
-                                <option value="@messaging.centurytel.net" <?php if ( $wp_sms_options_carrier == '@messaging.centurytel.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>CenturyTel</option>
-                                <option value="@txt.att.net" <?php if ( $wp_sms_options_carrier == '@txt.att.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Cingular</option>
-                                <option value="@msg.clearnet.com" <?php if ( $wp_sms_options_carrier == '@msg.clearnet.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Clearnet</option>
-                                <option value="@comcastpcs.textmsg.com" <?php if ( $wp_sms_options_carrier == '@comcastpcs.textmsg.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Comcast</option>
-                                <option value="@corrwireless.net" <?php if ( $wp_sms_options_carrier == '@corrwireless.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Corr Wireless Communications</option>
-                                <option value="@mobile.dobson.net" <?php if ( $wp_sms_options_carrier == '@mobile.dobson.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Dobson</option>
-                                <option value="@sms.edgewireless.com" <?php if ( $wp_sms_options_carrier == '@sms.edgewireless.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Edge Wireless</option>
-                                <option value="@fido.ca" <?php if ( $wp_sms_options_carrier == '@fido.ca' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Fido</option>
-                                <option value="@sms.goldentele.com" <?php if ( $wp_sms_options_carrier == '@sms.goldentele.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Golden Telecom</option>
-                                <option value="@messaging.sprintpcs.com" <?php if ( $wp_sms_options_carrier == '@messaging.sprintpcs.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Helio</option>
-                                <option value="@text.houstoncellular.net" <?php if ( $wp_sms_options_carrier == '@text.houstoncellular.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Houston Cellular</option>
-                                <option value="@ideacellular.net" <?php if ( $wp_sms_options_carrier == '@ideacellular.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Idea Cellular</option>
-                                <option value="@ivctext.com" <?php if ( $wp_sms_options_carrier == '@ivctext.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Illinois Valley Cellular</option>
-                                <option value="@inlandlink.com" <?php if ( $wp_sms_options_carrier == '@inlandlink.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Inland Cellular Telephone</option>
-                                <option value="@pagemci.com" <?php if ( $wp_sms_options_carrier == '@pagemci.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>MCI</option>
-                                <option value="@page.metrocall.com" <?php if ( $wp_sms_options_carrier == '@page.metrocall.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Metrocall</option>
-                                <option value="@my2way.com" <?php if ( $wp_sms_options_carrier == '@my2way.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Metrocall 2-way</option>
+                                <option value="3 River Wireless" <?php if ( $wp_sms_options_carrier == '3 River Wireless' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>3 River Wireless</option>
+                                <option value="ACS Wireless" <?php if ( $wp_sms_options_carrier == 'ACS Wireless' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>ACS Wireless</option>
+                                <option value="Alltel" <?php if ( $wp_sms_options_carrier == 'Alltel' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Alltel</option>
+                                <option value="AT&T" <?php if ( $wp_sms_options_carrier == 'AT&T' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>AT&T</option>
+                                <option value="Bell Canada" <?php if ( $wp_sms_options_carrier == 'Bell Canada' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Bell Canada</option>
+                                <option value="Bell Mobility (Canada)" <?php if ( $wp_sms_options_carrier == 'Bell Mobility (Canada)' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Bell Mobility (Canada)</option>
+                                <option value="Bell Mobility" <?php if ( $wp_sms_options_carrier == 'Bell Mobility' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Bell Mobility</option>
+                                <option value="Blue Sky Frog" <?php if ( $wp_sms_options_carrier == 'Blue Sky Frog' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Blue Sky Frog</option>
+                                <option value="Bluegrass Cellular" <?php if ( $wp_sms_options_carrier == 'Bluegrass Cellular' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Bluegrass Cellular</option>
+                                <option value="Boost Mobile" <?php if ( $wp_sms_options_carrier == 'Boost Mobile' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Boost Mobile</option>
+                                <option value="BPL Mobile" <?php if ( $wp_sms_options_carrier == 'BPL Mobile' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>BPL Mobile</option>
+                                <option value="Carolina West Wireless" <?php if ( $wp_sms_options_carrier == 'Carolina West Wireless' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Carolina West Wireless</option>
+                                <option value="Cellular One" <?php if ( $wp_sms_options_carrier == 'Cellular One' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Cellular One</option>
+                                <option value="Cellular South" <?php if ( $wp_sms_options_carrier == 'Cellular South' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Cellular South</option>
+                                <option value="CenturyTel" <?php if ( $wp_sms_options_carrier == 'CenturyTel' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>CenturyTel</option>
+                                <option value="Cingular" <?php if ( $wp_sms_options_carrier == 'Cingular' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Cingular</option>
+                                <option value="Clearnet" <?php if ( $wp_sms_options_carrier == 'Clearnet' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Clearnet</option>
+                                <option value="Comcast" <?php if ( $wp_sms_options_carrier == 'Comcast' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Comcast</option>
+                                <option value="Corr Wireless Communications" <?php if ( $wp_sms_options_carrier == 'Corr Wireless Communications' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Corr Wireless Communications</option>
+                                <option value="Dobson" <?php if ( $wp_sms_options_carrier == 'Dobson' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Dobson</option>
+                                <option value="Edge Wireless" <?php if ( $wp_sms_options_carrier == 'Edge Wireless' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Edge Wireless</option>
+                                <option value="Fido" <?php if ( $wp_sms_options_carrier == 'Fido' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Fido</option>
+                                <option value="Golden Telecom" <?php if ( $wp_sms_options_carrier == 'Golden Telecom' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Golden Telecom</option>
+                                <option value="Helio" <?php if ( $wp_sms_options_carrier == 'Helio' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Helio</option>
+                                <option value="Houston Cellular" <?php if ( $wp_sms_options_carrier == 'Houston Cellular' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Houston Cellular</option>
+                                <option value="Idea Cellular" <?php if ( $wp_sms_options_carrier == 'Idea Cellular' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Idea Cellular</option>
+                                <option value="Illinois Valley Cellular" <?php if ( $wp_sms_options_carrier == 'Illinois Valley Cellular' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Illinois Valley Cellular</option>
+                                <option value="Inland Cellular Telephone" <?php if ( $wp_sms_options_carrier == 'Inland Cellular Telephone' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Inland Cellular Telephone</option>
+                                <option value="MCI" <?php if ( $wp_sms_options_carrier == 'MCI' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>MCI</option>
+                                <option value="Metrocall" <?php if ( $wp_sms_options_carrier == 'Metrocall' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Metrocall</option>
+                                <option value="Metrocall 2-way" <?php if ( $wp_sms_options_carrier == 'Metrocall 2-way' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Metrocall 2-way</option>
                                 <option value="@mymetropcs.com" <?php if ( $wp_sms_options_carrier == '@mymetropcs.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Metro PCS</option>
-                                <option value="@fido.ca" <?php if ( $wp_sms_options_carrier == '@fido.ca' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Microcell</option>
-                                <option value="@clearlydigital.com" <?php if ( $wp_sms_options_carrier == '@clearlydigital.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Midwest Wireless</option>
-                                <option value="@mobilecomm.net" <?php if ( $wp_sms_options_carrier == '@mobilecomm.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Mobilcomm</option>
-                                <option value="@text.mtsmobility.com" <?php if ( $wp_sms_options_carrier == '@text.mtsmobility.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>MTS</option>
-                                <option value="@messaging.nextel.com" <?php if ( $wp_sms_options_carrier == '@messaging.nextel.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Nextel</option>
-                                <option value="@onlinebeep.net" <?php if ( $wp_sms_options_carrier == '@onlinebeep.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>OnlineBeep</option>
-                                <option value="@pcsone.net" <?php if ( $wp_sms_options_carrier == '@pcsone.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>PCS One</option>
-                                <option value="@txt.bell.ca" <?php if ( $wp_sms_options_carrier == '@txt.bell.ca' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>President's Choice</option>
-                                <option value="@sms.pscel.com" <?php if ( $wp_sms_options_carrier == '@sms.pscel.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Public Service Cellular</option>
-                                <option value="@qwestmp.com" <?php if ( $wp_sms_options_carrier == '@qwestmp.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Qwest</option>
-                                <option value="@pcs.rogers.com" <?php if ( $wp_sms_options_carrier == '@pcs.rogers.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Rogers AT&T Wireless</option>
-                                <option value="@pcs.rogers.com" <?php if ( $wp_sms_options_carrier == '@pcs.rogers.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Rogers Canada</option>
-                                <option value="@satellink.net" <?php if ( $wp_sms_options_carrier == '@satellink.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Satellink</option>
-                                <option value="@txt.bell.ca" <?php if ( $wp_sms_options_carrier == '@txt.bell.ca' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Solo Mobile</option>
-                                <option value="@email.swbw.com" <?php if ( $wp_sms_options_carrier == '@email.swbw.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Southwestern Bell</option>
-                                <option value="@messaging.sprintpcs.com" <?php if ( $wp_sms_options_carrier == '@messaging.sprintpcs.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Sprint</option>
-                                <option value="@tms.suncom.com" <?php if ( $wp_sms_options_carrier == '@tms.suncom.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Sumcom</option>
-                                <option value="@mobile.surewest.com" <?php if ( $wp_sms_options_carrier == '@mobile.surewest.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Surewest Communicaitons</option>
-                                <option value="@tmomail.net" <?php if ( $wp_sms_options_carrier == '@tmomail.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>T-Mobile</option>
-                                <option value="@msg.telus.com" <?php if ( $wp_sms_options_carrier == '@msg.telus.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Telus</option>
-                                <option value="@txt.att.net" <?php if ( $wp_sms_options_carrier == '@txt.att.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Tracfone</option>
-                                <option value="@tms.suncom.com" <?php if ( $wp_sms_options_carrier == '@tms.suncom.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Triton</option>
-                                <option value="@utext.com" <?php if ( $wp_sms_options_carrier == '@utext.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Unicel</option>
-                                <option value="@email.uscc.net" <?php if ( $wp_sms_options_carrier == '@email.uscc.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>US Cellular</option>
-                                <option value="@uswestdatamail.com" <?php if ( $wp_sms_options_carrier == '@uswestdatamail.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>US West</option>
-                                <option value="@vtext.com" <?php if ( $wp_sms_options_carrier == '@vtext.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Verizon</option>
-                                <option value="@vmobl.com" <?php if ( $wp_sms_options_carrier == '@vmobl.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Virgin Mobile</option>
-                                <option value="@vmobile.ca" <?php if ( $wp_sms_options_carrier == '@vmobl.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Virgin Mobile Canada</option>
-                                <option value="@sms.wcc.net" <?php if ( $wp_sms_options_carrier == '@sms.wcc.net' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>West Central Wireless</option>
-                                <option value="@cellularonewest.com" <?php if ( $wp_sms_options_carrier == '@cellularonewest.com' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Western Wireless</option>
+                                <option value="Metro PCS" <?php if ( $wp_sms_options_carrier == 'Metro PCS' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Microcell</option>
+                                <option value="Midwest Wireless" <?php if ( $wp_sms_options_carrier == 'Midwest Wireless' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Midwest Wireless</option>
+                                <option value="Mobilcomm" <?php if ( $wp_sms_options_carrier == 'Mobilcomm' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Mobilcomm</option>
+                                <option value="MTS" <?php if ( $wp_sms_options_carrier == 'MTS' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>MTS</option>
+                                <option value="Nextel" <?php if ( $wp_sms_options_carrier == 'Nextel' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Nextel</option>
+                                <option value="OnlineBeep" <?php if ( $wp_sms_options_carrier == 'OnlineBeep' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>OnlineBeep</option>
+                                <option value="PCS One" <?php if ( $wp_sms_options_carrier == 'PCS One' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>PCS One</option>
+                                <option value="Presidents Choice" <?php if ( $wp_sms_options_carrier == 'Presidents Choice' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>President's Choice</option>
+                                <option value="Public Service Cellular" <?php if ( $wp_sms_options_carrier == 'Public Service Cellular' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Public Service Cellular</option>
+                                <option value="Qwest" <?php if ( $wp_sms_options_carrier == 'Qwest' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Qwest</option>
+                                <option value="Rogers AT&T Wireless" <?php if ( $wp_sms_options_carrier == 'Rogers AT&T Wireless' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Rogers AT&T Wireless</option>
+                                <option value="Rogers Canada" <?php if ( $wp_sms_options_carrier == 'Rogers Canada' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Rogers Canada</option>
+                                <option value="Satellink" <?php if ( $wp_sms_options_carrier == 'Satellink' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Satellink</option>
+                                <option value="Solo Mobile" <?php if ( $wp_sms_options_carrier == 'Solo Mobile' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Solo Mobile</option>
+                                <option value="Southwestern Bell" <?php if ( $wp_sms_options_carrier == 'Southwestern Bell' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Southwestern Bell</option>
+                                <option value="Sprint" <?php if ( $wp_sms_options_carrier == 'Sprint' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Sprint</option>
+                                <option value="Suncom" <?php if ( $wp_sms_options_carrier == 'Suncom' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Suncom</option>
+                                <option value="Surewest Communicaitons" <?php if ( $wp_sms_options_carrier == 'Surewest Communicaitons' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Surewest Communicaitons</option>
+                                <option value="T-Mobile" <?php if ( $wp_sms_options_carrier == 'T-Mobile' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>T-Mobile</option>
+                                <option value="Telus" <?php if ( $wp_sms_options_carrier == 'Telus' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Telus</option>
+                                <option value="Tracfone" <?php if ( $wp_sms_options_carrier == 'Tracfone' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Tracfone</option>
+                                <option value="Triton" <?php if ( $wp_sms_options_carrier == 'Triton' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Triton</option>
+                                <option value="Unicel" <?php if ( $wp_sms_options_carrier == 'Unicel' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Unicel</option>
+                                <option value="US Cellular" <?php if ( $wp_sms_options_carrier == 'US Cellular' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>US Cellular</option>
+                                <option value="US West" <?php if ( $wp_sms_options_carrier == 'US West' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>US West</option>
+                                <option value="Verizon" <?php if ( $wp_sms_options_carrier == 'Verizon' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Verizon</option>
+                                <option value="Virgin Mobile" <?php if ( $wp_sms_options_carrier == 'Virgin Mobile' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Virgin Mobile</option>
+                                <option value="Virgin Mobile Canada" <?php if ( $wp_sms_options_carrier == 'Virgin Mobile Canada' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Virgin Mobile Canada</option>
+                                <option value="West Central Wireless" <?php if ( $wp_sms_options_carrier == 'West Central Wireless' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>West Central Wireless</option>
+                                <option value="Western Wireless" <?php if ( $wp_sms_options_carrier == 'Western Wireless' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>Western Wireless</option>
                         </select></td>
 		</tr>
 		<tr valign="top">
