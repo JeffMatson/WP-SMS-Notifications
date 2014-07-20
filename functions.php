@@ -1,14 +1,22 @@
 <?php
-// Defines how mail is sent.
+/**
+ * Defines how mail is sent.
+ *
+ * @access public
+ * @param mixed $wp_sms_phone_number (default: NULL)
+ * @param mixed $wp_sms_updated (default: NULL)
+ * @param mixed $wp_sms_updated_item (default: NULL)
+ * @return void
+ */
 function wp_sms_send_notification( $wp_sms_phone_number = NULL, $wp_sms_updated = NULL, $wp_sms_updated_item = NULL ) {
 		$wp_sms_site_domain = get_bloginfo( 'wpurl' );
 		$wp_sms_replace_rules = array();
 		$wp_sms_replace_rules[0] = '/http\:\/\//';
 		$wp_sms_replace_rules[1] = '/https\:\/\//';
-		$wp_sms_site_domain = preg_replace($wp_sms_replace_rules, "", $wp_sms_site_domain);		
+		$wp_sms_site_domain = preg_replace($wp_sms_replace_rules, "", $wp_sms_site_domain);
 		$wp_sms_headers = "From: admin@{$wp_sms_site_domain}\r\n";
 		mail ( $wp_sms_phone_number, $wp_sms_updated, $wp_sms_updated_item, $wp_sms_headers );
-				
+
 }
 // Strips all symbols from the phone number
 $wp_sms_phone_unformatted = get_option( 'wp_sms_phone_number' );
@@ -203,18 +211,31 @@ if ( get_option( 'wp_sms_carrier' ) == 'Western Wireless' ) {
 }
 
 
-	
+// Check if $wp_sms_carrier is set to avoid errors.
+if ( isset( $wp_sms_carrier )) {
+
 $wp_sms_phone = $wp_sms_phone_formatted . $wp_sms_carrier;
+
+}
 
 // Sends SMS when post is published.
 if ( get_option( 'wp_sms_on_post_publish' ) == '1' ) {
 
+	/**
+	 * detect_published_post function.
+	 *
+	 * @access public
+	 * @param mixed $wp_sms_new_status (default: NULL)
+	 * @param mixed $wp_sms_old_status (default: NULL)
+	 * @param mixed $wp_sms_post_ID (default: NULL)
+	 * @return void
+	 */
 	function detect_published_post ( $wp_sms_new_status = NULL, $wp_sms_old_status = NULL, $wp_sms_post_ID = NULL ) {
 
 		if ( 'publish' == $wp_sms_new_status && 'publish' != $wp_sms_old_status ) {
 
-			
-			wp_sms_send_notification( $GLOBALS['wp_sms_phone'], '', "This new post has been published: {$wp_sms_post_ID->post_title}" );	
+
+			wp_sms_send_notification( $GLOBALS['wp_sms_phone'], '', "This new post has been published: {$wp_sms_post_ID->post_title}" );
 
 		}
 
@@ -229,7 +250,7 @@ if ( get_option( 'wp_sms_on_user_login' ) == '1' ) {
 
 	if ( ! function_exists( 'get_currentuserinfo' ) ) {
 
-		include( ABSPATH . 'wp-includes/pluggable.php' ); 
+		include( ABSPATH . 'wp-includes/pluggable.php' );
 
 	}
 
@@ -241,9 +262,16 @@ if ( get_option( 'wp_sms_on_user_login' ) == '1' ) {
 
 	if ( '' == $wp_sms_new_user_logged_in ) {
 
+		/**
+		 * detect_user_login function.
+		 *
+		 * @access public
+		 * @param mixed $wp_sms_new_user_logged_in
+		 * @return void
+		 */
 		function detect_user_login( $wp_sms_new_user_logged_in ) {
 
-			wp_sms_send_notification( $GLOBALS['wp_sms_phone'], '', 'User successfully logged in: { $wp_sms_new_user_logged_in }');   
+			wp_sms_send_notification( $GLOBALS['wp_sms_phone'], '', 'User successfully logged in: { $wp_sms_new_user_logged_in }');
 
 		}
 
@@ -256,6 +284,15 @@ if ( get_option( 'wp_sms_on_user_login' ) == '1' ) {
 // Sends SMS when a plugin is updated.
 if ( '1' == get_option( 'wp_sms_on_plugin_update' ) ) {
 
+	/**
+	 * wp_sms_plugin_updated function.
+	 *
+	 * @access public
+	 * @param mixed $a
+	 * @param mixed $b
+	 * @param mixed $c
+	 * @return void
+	 */
 	function wp_sms_plugin_updated( $a, $b, $c ) {
 
 		if ( $b['type'] == 'plugin' && $b['action'] == 'update' ) {
@@ -272,6 +309,15 @@ if ( '1' == get_option( 'wp_sms_on_plugin_update' ) ) {
 // Sends SMS when a plugin is installed.
 if ( '1' == get_option( 'wp_sms_on_plugin_install' ) ) {
 
+		/**
+		 * wp_sms_plugin_install function.
+		 *
+		 * @access public
+		 * @param mixed $a
+		 * @param mixed $b
+		 * @param mixed $c
+		 * @return void
+		 */
 		function wp_sms_plugin_install( $a, $b, $c ) {
 
 				if ( $b['type'] == 'plugin' && $b['action'] == 'install' ) {
@@ -287,7 +333,16 @@ if ( '1' == get_option( 'wp_sms_on_plugin_install' ) ) {
 
 // Sends SMS when a post is updated
 if ( '1' == get_option( 'wp_sms_on_post_update' ) ) {
-	
+
+	/**
+	 * wp_sms_post_update function.
+	 *
+	 * @access public
+	 * @param mixed $post_ID
+	 * @param mixed $post_after
+	 * @param mixed $post_before
+	 * @return void
+	 */
 	function wp_sms_post_update( $post_ID, $post_after, $post_before ) {
 
 	if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
@@ -303,6 +358,15 @@ if ( '1' == get_option( 'wp_sms_on_post_update' ) ) {
 }
 if ( '1' == get_option( 'wp_sms_on_theme_install' ) ) {
 
+		/**
+		 * wp_sms_theme_install function.
+		 *
+		 * @access public
+		 * @param mixed $a
+		 * @param mixed $b
+		 * @param mixed $c
+		 * @return void
+		 */
 		function wp_sms_theme_install( $a, $b, $c ) {
 
 				if ( $b['type'] == 'theme' && $b['action'] == 'install' ) {
@@ -318,6 +382,15 @@ if ( '1' == get_option( 'wp_sms_on_theme_install' ) ) {
 
 if ( '1' == get_option( 'wp_sms_on_theme_update' ) ) {
 
+		/**
+		 * wp_sms_theme_update function.
+		 *
+		 * @access public
+		 * @param mixed $a
+		 * @param mixed $b
+		 * @param mixed $c
+		 * @return void
+		 */
 		function wp_sms_theme_update( $a, $b, $c ) {
 
 				if ( $b['type'] == 'theme' && $b['action'] == 'update' ) {
