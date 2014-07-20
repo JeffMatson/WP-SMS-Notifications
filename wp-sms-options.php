@@ -57,17 +57,17 @@ function update_wp_sms_settings() {
 function wp_sms_notifications_menu(){ ?>
 
 <div class="wrap">
-  <h1><?php echo _e('WP SMS Notifications configuration'); ?></h1>
+  <h1><?php _e('WP SMS Notifications configuration'); ?></h1>
         <form method="post" action="options.php">
         <?php settings_fields( 'wp_sms_settings' ); ?>
 	<?php do_settings_sections( 'wp_sms_settings' ); ?>
 	<table class="form-table">
                 <tr valign="top">
-			<th scope="row"><?php echo _e('Phone number') ?>:</th>
+			<th scope="row"><?php _e('Phone number') ?>:</th>
                         <td><input type="text" name="wp_sms_phone_number" value="<?php echo get_option('wp_sms_phone_number'); ?>"/></td>
 		</tr>
 		<tr valign="top">
-			<th scope="row"><?php echo _e('Cell carrier'); ?>:</th>
+			<th scope="row"><?php _e('Cell carrier'); ?>:</th>
 			<?php $wp_sms_options_carrier = get_option('wp_sms_carrier'); ?>
 		<td><select name="wp_sms_carrier" selected="<?php echo get_option('wp_sms_carrier'); ?>">
                                 <option value="3 River Wireless" <?php if ( $wp_sms_options_carrier == '3 River Wireless' ) { echo "selected=\"$wp_sms_options_carrier\""; } ?>>3 River Wireless</option>
