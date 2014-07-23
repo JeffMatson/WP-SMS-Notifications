@@ -271,7 +271,7 @@ if ( get_option( 'wp_sms_on_user_login' ) == '1' ) {
 		 */
 		function detect_user_login( $wp_sms_new_user_logged_in ) {
 
-			wp_sms_send_notification( $GLOBALS['wp_sms_phone'], '', 'User successfully logged in: { $wp_sms_new_user_logged_in }');
+			wp_sms_send_notification( $GLOBALS['wp_sms_phone'], '', "User successfully logged in: {$wp_sms_new_user_logged_in}");
 
 		}
 

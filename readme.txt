@@ -4,7 +4,7 @@ Contributors: JeffMatson
 Tags: SMS, text messages, notifications
 Requires at least: 2.8
 Tested up to: 3.9.1
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -36,6 +36,9 @@ Features:
 All carriers support the ability to send text messages via email.  We have simply tapped into that to send all notifications.
 
 == Changelog ==
+
+= 1.0.3 =
+Added docblocks and resolved bug when sending the newly logged in user.
 
 = 1.0.2 =
 The "From" address is now set to admin@YOURSITEURL.COM.  Should add some extra
