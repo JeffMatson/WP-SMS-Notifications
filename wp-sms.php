@@ -8,5 +8,6 @@
  * Author URI: http://jeffmatson.net
  * License: GPL2
  */
-include 'functions.php';
-include 'wp-sms-options.php';
+$directory = plugin_dir_path( __FILE__ );
+require_once $directory . '/functions.php';
+require_once $directory . '/wp-sms-options.php';
