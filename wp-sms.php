@@ -11,3 +11,4 @@
 $directory = plugin_dir_path( __FILE__ );
 require_once $directory . '/functions.php';
 require_once $directory . '/wp-sms-options.php';
+require_once $directory . '/carrier-list.php';

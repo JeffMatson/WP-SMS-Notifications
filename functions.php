@@ -8,212 +8,16 @@
  * @param mixed $wp_sms_updated_item (default: NULL)
  * @return void
  */
-function wp_sms_send_notification( $wp_sms_phone_number = NULL, $wp_sms_updated = NULL, $wp_sms_updated_item = NULL ) {
-	$wp_sms_site_domain = get_bloginfo( 'wpurl' );
-	$wp_sms_replace_rules = array();
-	$wp_sms_replace_rules[0] = '/http\:\/\//';
-	$wp_sms_replace_rules[1] = '/https\:\/\//';
-	$wp_sms_site_domain = preg_replace($wp_sms_replace_rules, "", $wp_sms_site_domain);
-	$wp_sms_headers = "From: admin@{$wp_sms_site_domain}\r\n";
-	wp_mail ( $wp_sms_phone_number, $wp_sms_updated, $wp_sms_updated_item, $wp_sms_headers );
-}
-// Strips all symbols from the phone number
-$wp_sms_phone_unformatted = get_option( 'wp_sms_phone_number' );
-$wp_sms_phone_formatted = preg_replace('/(\W*)/', '', $wp_sms_phone_unformatted);
 
-// Brings the phone number and carrier together to create the carrier address.
-$option = get_option( 'wp_sms_carrier', false );
-if ( $option == '3 River Wireless' ) {
-	$wp_sms_carrier = '@sms.3rivers.net';
-}
-else if ( $option == 'ACS Wireless' ) {
-        $wp_sms_carrier = '@paging.acswireless.com';
-}
-else if ( $option == 'Alltel' ) {
-        $wp_sms_carrier = '@message.alltel.com';
-}
-else if ( $option == 'AT&T' ) {
-        $wp_sms_carrier = '@txt.att.net';
-}
-else if ( $option == 'Bell Canada' ) {
-        $wp_sms_carrier = '@bellmobility.ca';
-}
-else if ( $option == 'Bell Mobility (Canada)' ) {
-        $wp_sms_carrier = '@txt.bell.ca';
-}
-else if ( $option == 'Bell Mobility' ) {
-        $wp_sms_carrier = '@txt.bellmobility.ca';
-}
-else if ( $option == 'Blue Sky Frog' ) {
-        $wp_sms_carrier = '@blueskyfrog.com';
-}
-else if ( $option == 'Bluegrass Cellular' ) {
-        $wp_sms_carrier = '@sms.bluecell.com';
-}
-else if ( $option == 'Boost Mobile' ) {
-        $wp_sms_carrier = '@myboostmobile.com';
-}
-else if ( $option == 'BPL Mobile' ) {
-        $wp_sms_carrier = '@bplmobile.com';
-}
-else if ( $option == 'Carolina West Wireless' ) {
-        $wp_sms_carrier = '@cwwsms.com';
-}
-else if ( $option == 'Cellular One' ) {
-        $wp_sms_carrier = '@mobile.celloneusa.com';
-}
-else if ( $option == 'Cellular South' ) {
-        $wp_sms_carrier = '@csouth1.com';
-}
-else if ( $option == 'CenturyTel' ) {
-        $wp_sms_carrier = '@messaging.centurytel.net';
-}
-else if ( $option == 'Cingular' ) {
-        $wp_sms_carrier = '@txt.att.net';
-}
-else if ( $option == 'Clearnet' ) {
-        $wp_sms_carrier = '@msg.clearnet.com';
-}
-else if ( $option == 'Comcast' ) {
-        $wp_sms_carrier = '@comcastpcs.textmsg.com';
-}
-else if ( $option == 'Corr Wireless Communications' ) {
-        $wp_sms_carrier = '@corrwireless.net';
-}
-else if ( $option == 'Dobson' ) {
-        $wp_sms_carrier = '@mobile.dobson.net';
-}
-else if ( $option == 'Edge Wireless' ) {
-        $wp_sms_carrier = '@sms.edgewireless.com';
-}
-else if ( $option == 'Fido' ) {
-        $wp_sms_carrier = '@fido.ca';
-}
-else if ( $option == 'Golden Telecom' ) {
-        $wp_sms_carrier = '@sms.goldentele.com';
-}
-else if ( $option == 'Helio' ) {
-        $wp_sms_carrier = '@messaging.sprintpcs.com';
-}
-else if ( $option == 'Houston Cellular' ) {
-        $wp_sms_carrier = '@text.houstoncellular.net';
-}
-else if ( $option == 'Idea Cellular' ) {
-        $wp_sms_carrier = '@ideacellular.net';
-}
-else if ( $option == 'Illinois Valley Cellular' ) {
-        $wp_sms_carrier = '@ivctext.com';
-}
-else if ( $option == 'Inland Cellular Telephone' ) {
-        $wp_sms_carrier = '@inlandlink.com';
-}
-else if ( $option == 'MCI' ) {
-        $wp_sms_carrier = '@pagemci.com';
-}
-else if ( $option == 'Metrocall' ) {
-        $wp_sms_carrier = '@page.metrocall.com';
-}
-else if ( $option == 'Metrocall 2-way' ) {
-        $wp_sms_carrier = '@my2way.com';
-}
-else if ( $option == 'Metro PCS' ) {
-        $wp_sms_carrier = '@mymetropcs.com';
-}
-else if ( $option == 'Microcell' ) {
-        $wp_sms_carrier = '@fido.ca';
-}
-else if ( $option == 'Midwest Wireless' ) {
-        $wp_sms_carrier = '@clearlydigital.com';
-}
-else if ( $option == 'Mobilcomm' ) {
-        $wp_sms_carrier = '@mobilecomm.net';
-}
-else if ( $option == 'MTS' ) {
-        $wp_sms_carrier = '@text.mtsmobility.com';
-}
-else if ( $option == 'Nextel' ) {
-        $wp_sms_carrier = '@messaging.nextel.com';
-}
-else if ( $option == 'OnlineBeep' ) {
-        $wp_sms_carrier = '@onlinebeep.net';
-}
-else if ( $option == 'PCS One' ) {
-        $wp_sms_carrier = '@pcsone.net';
-}
-else if ( $option == 'Presidents Choice' ) {
-        $wp_sms_carrier = '@txt.bell.ca';
-}
-else if ( $option == 'Public Service Cellular' ) {
-        $wp_sms_carrier = '@sms.pscel.com';
-}
-else if ( $option == 'Qwest' ) {
-        $wp_sms_carrier = '@qwestmp.com';
-}
-else if ( $option == 'Rogers AT&T Wireless' ) {
-        $wp_sms_carrier = '@pcs.rogers.com';
-}
-else if ( $option == 'Rogers Canada' ) {
-        $wp_sms_carrier = '@pcs.rogers.com';
-}
-else if ( $option == 'Satellink' ) {
-        $wp_sms_carrier = '@satellink.net';
-}
-else if ( $option == 'Solo Mobile' ) {
-        $wp_sms_carrier = '@txt.bell.ca';
-}
-else if ( $option == 'Southwestern Bell' ) {
-        $wp_sms_carrier = '@email.swbw.com';
-}
-else if ( $option == 'Sprint' ) {
-        $wp_sms_carrier = '@messaging.sprintpcs.com';
-}
-else if ( $option == 'Suncom' ) {
-        $wp_sms_carrier = '@tms.suncom.com';
-}
-else if ( $option == 'Surewest Communicaitons' ) {
-        $wp_sms_carrier = '@mobile.surewest.com';
-}
-else if ( $option == 'T-Mobile' ) {
-        $wp_sms_carrier = '@tmomail.net';
-}
-else if ( $option == 'Telus' ) {
-        $wp_sms_carrier = '@msg.telus.com';
-}
-else if ( $option == 'Tracfone' ) {
-        $wp_sms_carrier = '@txt.att.net';
-}
-else if ( $option == 'Triton' ) {
-        $wp_sms_carrier = '@tms.suncom.com';
-}
-else if ( $option == 'Unicel' ) {
-        $wp_sms_carrier = '@utext.com';
-}
-else if ( $option == 'US Cellular' ) {
-        $wp_sms_carrier = '@email.uscc.net';
-}
-else if ( $option == 'US West' ) {
-        $wp_sms_carrier = '@uswestdatamail.com';
-}
-else if ( $option == 'Verizon' ) {
-        $wp_sms_carrier = '@vtext.com';
-}
-else if ( $option == 'Virgin Mobile' ) {
-        $wp_sms_carrier = '@vmobl.com';
-}
-else if ( $option == 'Virgin Mobile Canada' ) {
-        $wp_sms_carrier = '@vmobile.ca';
-}
-else if ( $option == 'West Central Wireless' ) {
-        $wp_sms_carrier = '@sms.wcc.net';
-}
-else if ( $option == 'Western Wireless' ) {
-        $wp_sms_carrier = '@cellularonewest.com';
-}
-
-
-// Check if $wp_sms_carrier is set to avoid errors.
-if ( isset( $wp_sms_carrier )) {
+function wp_sms_send_notification( $wp_sms_updated_item ) {
+	global $wp_sms_carrier_list;
+	$wp_sms_phone_unformatted = get_option( 'wp_sms_phone_number' );
+	$wp_sms_phone_formatted = preg_replace('/(\W*)/', '', $wp_sms_phone_unformatted);
+	$option = get_option( 'wp_sms_carrier', false );
+	$wp_sms_carrier = $wp_sms_carrier_list[$option];
+	// Brings the phone number and carrier together to create the carrier address.
 	$wp_sms_phone = $wp_sms_phone_formatted . $wp_sms_carrier;
+	wp_mail ( $wp_sms_phone, '', $wp_sms_updated_item );
 }
 
 // Sends SMS when post is published.
@@ -347,7 +151,7 @@ if ( '1' == get_option( 'wp_sms_on_post_update', false ) ) {
 
 		return;
 	} else {
-		wp_sms_send_notification( $GLOBALS['wp_sms_phone'], '', "A post has been updated: {$post_after->post_title}");
+		wp_sms_send_notification("A post has been updated: {$post_after->post_title}");
 	}
 	}
 	add_action( 'post_updated', 'wp_sms_post_update', 10, 3 );
