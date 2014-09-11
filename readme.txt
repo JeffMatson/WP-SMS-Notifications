@@ -33,7 +33,7 @@ Features:
 
 == Frequently Asked Questions ==
 
-= How are text messages sent? = 
+= How are text messages sent? =
 All carriers support the ability to send text messages via email.  We have simply tapped into that to send all notifications.
 
 == Changelog ==

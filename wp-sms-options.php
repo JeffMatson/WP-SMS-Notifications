@@ -79,7 +79,7 @@ function wp_sms_notifications_menu() {
 					}
 					?>
 					</select>
-					
+
 				</td>
 			</tr>
 			<tr valign="top">
