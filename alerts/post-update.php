@@ -1,4 +1,5 @@
 <?php
+function wp_sms_post_update( $post_ID, $post_after, $post_before ) {
 if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE ) {
   return;
 } else {

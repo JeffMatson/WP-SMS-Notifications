@@ -24,4 +24,5 @@ if ( '' == $wp_sms_new_user_logged_in ) {
 
     wp_sms_send_notification( "User successfully logged in: {$wp_sms_new_user_logged_in}");
 
+  }
 }

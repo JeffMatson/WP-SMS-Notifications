@@ -1,4 +1,11 @@
 <?php
+
+if ( ! function_exists( 'wp_mail' ) ) {
+
+	include( ABSPATH . 'wp-includes/pluggable.php' );
+
+}
+
 /**
  * Defines how mail is sent.
  *
