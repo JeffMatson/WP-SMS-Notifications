@@ -4,7 +4,7 @@ Contributors: JeffMatson
 Tags: SMS, text messages, notifications
 Requires at least: 2.8
 Tested up to: 4.0
-Stable tag: 1.1
+Stable tag: 2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -24,6 +24,7 @@ Features:
 *	Notifications when a user logs in.
 *	Notifications when a plugin is installed or updated.
 *	Notifications when a theme is installed or updated.
+* Fully extyensible
 
 == Installation ==
 
@@ -37,6 +38,12 @@ Features:
 All carriers support the ability to send text messages via email.  We have simply tapped into that to send all notifications.
 
 == Changelog ==
+
+= 2.0 =
+* Carrier list is now easier to manage
+* Codebase is now easier to understand
+* Codebase is more efficient
+* Fully extensible
 
 = 1.1 =
 * Ensured compatibility with 4.0

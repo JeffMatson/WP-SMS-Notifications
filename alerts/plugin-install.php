@@ -1,4 +1,5 @@
 <?php
+
 function wp_sms_plugin_install( $a, $b, $c ) {
 
     if ( $b['type'] == 'plugin' && $b['action'] == 'install' ) {
