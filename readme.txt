@@ -24,7 +24,7 @@ Features:
 *	Notifications when a user logs in.
 *	Notifications when a plugin is installed or updated.
 *	Notifications when a theme is installed or updated.
-* Fully extyensible
+* Fully extensible
 
 == Installation ==
 
