@@ -9,3 +9,4 @@ function wp_sms_plugin_install( $a, $b, $c ) {
     }
 
 }
+add_action( 'upgrader_post_install', 'wp_sms_plugin_install', 10, 3 );
