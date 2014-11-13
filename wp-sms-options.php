@@ -29,10 +29,10 @@ if ( is_admin() && current_user_can( 'manage_options' ) ) {
 			<h1>WP SMS Notifications configuration</h1>
 
 			<div style="margin-right:auto; float:left;">
-				<form method="post" action="tools.php?page=wp-sms-notifications">
+				<form method="post" action="<?php admin_url( 'tools.php?page=wp-sms-notifications' ); ?>">
 					<h3>Allow these users to configure SMS notifications:</h3>
 					<?php
-					$blogusers = get_users( 'blog_id=1&orderby=nicename&role!=subscriber' );
+					$blogusers = get_users( esc_sql( 'blog_id=1&orderby=nicename&role!=subscriber' ) );
 
 					foreach ( $blogusers as $user ) :
 
