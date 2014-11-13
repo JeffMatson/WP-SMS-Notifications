@@ -22,7 +22,8 @@ if ( '' == $wp_sms_new_user_logged_in ) {
    */
   function detect_user_login( $wp_sms_new_user_logged_in ) {
 
-    wp_sms_send_notification( "User successfully logged in: {$wp_sms_new_user_logged_in}");
+    wp_sms_send_notification( 'User successfully logged in: ' . $wp_sms_new_user_logged_in, 'wp_sms_on_user_login');
 
   }
+add_action('wp_login', 'detect_user_login', 10, 2);
 }
