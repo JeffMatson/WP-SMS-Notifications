@@ -32,7 +32,7 @@ if ( ! function_exists( 'wp_mail' ) ) {
 function wp_sms_send_notification( $message, $alert_type ) {
 
 	global $wp_sms_carrier_list;
-	
+
 	$users = get_users( 'meta_key=' . $alert_type . '&fields=ID' );
 	// $user_query = new WP_User_Query(
 	// 	array(
@@ -45,7 +45,7 @@ function wp_sms_send_notification( $message, $alert_type ) {
 	// var_dump($users);
 
 	foreach ( $users as $user ) {
-		$wp_sms_phone_unformatted = get_the_author_meta( 'wp_sms_phone_number', $user[ ID ] );
+		$wp_sms_phone_unformatted = get_the_author_meta( 'wp_sms_phone_number', $user->ID );
 		$wp_sms_phone_formatted   = preg_replace( '/(\W*)/', '', $wp_sms_phone_unformatted );
 		$wp_sms_carrier           = get_the_author_meta( 'wp_sms_carrier', $user->ID );
 		$wp_sms_carrier           = $wp_sms_carrier_list[ $wp_sms_carrier ];
