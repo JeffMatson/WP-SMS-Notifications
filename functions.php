@@ -33,7 +33,7 @@ function wp_sms_send_notification( $message, $alert_type ) {
 
 	global $wp_sms_carrier_list;
 
-	$users = get_users( 'meta_key=' . $alert_type . '&fields=ID' );
+	$users = get_users( esc_sql( 'meta_key=' . $alert_type . '&fields=ID' ) );
 	// $user_query = new WP_User_Query(
 	// 	array(
 	// 		'meta_key'	=> $alert_type,
