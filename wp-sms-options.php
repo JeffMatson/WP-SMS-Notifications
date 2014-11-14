@@ -18,11 +18,10 @@ if ( is_admin() && current_user_can( 'manage_options' ) ) {
 			'wp_sms_notifications_menu',
 			99
 		);
-		// add_action( 'admin_init', 'update_wp_sms_settings' );
 	}
 
-	?>
-	<?php function wp_sms_notifications_menu() { ?>
+	function wp_sms_notifications_menu() {
+		?>
 
 		<div class="wrap">
 
@@ -31,128 +30,133 @@ if ( is_admin() && current_user_can( 'manage_options' ) ) {
 			<div style="margin-right:auto; float:left;">
 				<form method="post" action="<?php admin_url( 'tools.php?page=wp-sms-notifications' ); ?>">
 					<h3>Allow these users to configure SMS notifications:</h3>
-					<?php
-					$blogusers = get_users( esc_sql( 'blog_id=1&orderby=nicename&role!=subscriber' ) );
+
+					<table class="form-table">
+
+						<?php
+						$blogusers = get_users( esc_sql( 'blog_id=1&orderby=nicename&role!=subscriber' ) );
 
 					foreach ( $blogusers as $user ) :
-
-						if ( ! empty( $_POST ) ) {
-
-							if ( is_numeric( $_POST['wp_sms_allowed'] ) ) {
-								update_user_meta( $user->ID, 'wp_sms_allowed', $_POST['wp_sms_allowed'] );
+							$sms_user_selection = 'wp_sms_allowed_' . $user->user_nicename;
+							if ( isset($_POST[$sms_user_selection]) && $_POST[$sms_user_selection] == '1' ) {
+								update_user_meta( $user->ID, 'wp_sms_allowed', '1' );
 							}
 
-						} ?>
+							else {
+								delete_user_meta( $user->ID, $sms_user_selection);
+							} ?>
 
 						<tr valign="top">
 
 							<th scope="row"><?php echo esc_html( $user->user_nicename ); ?></th>
 							<?php $user_allowed = get_user_meta( $user->ID, 'wp_sms_allowed', 'true' ); ?>
 							<td>
-								<input type="checkbox" name="wp_sms_allowed" value="1" <?php checked( $user_allowed, '1' ); ?>/>
+								<label>
+									<input type="checkbox" name="<?php echo $sms_user_selection ?>"
+									       value="1" <?php checked( $user_allowed, '1' ); ?>/>
+								</label>
 							</td>
 
 						</tr>
 
+
 					<?php endforeach; ?>
 
-					<?php submit_button(); ?>
 
+
+					</table>
+					<?php submit_button(); ?>
 				</form>
+
 			</div>
 
 			<div style="margin-left:auto; float:right;">
 
 				<h2>Want more features?</h2>
-				<a href="https://jeffmatson.net/wp-sms/">Upgrade to WP SMS Notifications Pro</a> today!</p>
+
+				<p><a href="https://jeffmatson.net/wp-sms/">Upgrade to WP SMS Notifications Pro</a> today!</p>
 				<table style="border-collapse:collapse;border-spacing:0;">
 					<tr>
-						<th style="font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<h3>
-								<center>Personal License</center>
-							</h3>
+						<th style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<h3 style="text-align: center;">Personal License</h3>
 						</th>
-						<th style="font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<h3>
-								<center>Developer License</center>
-							</h3>
+						<th style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<h3 style="text-align: center;">Developer License</h3>
 						</th>
-						<th style="font-family:Arial, sans-serif;font-size:14px;font-weight:normal;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<h3>
-								<center>Agency License</center>
-							</h3>
+						<th style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<h3 style="text-align: center;">Agency License</h3>
 						</th>
 					</tr>
 					<tr>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>$10</center>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">$10</p>
 						</td>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>$25</center>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">$25</p>
 						</td>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>$50</center>
-						</td>
-					</tr>
-					<tr>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>1 Site</center>
-						</td>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>5 Sites</center>
-						</td>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>30 Sites</center>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">$50</p>
 						</td>
 					</tr>
 					<tr>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>1 Year Premium Support</center>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">1 Site</p>
 						</td>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>1 Year Premium Support</center>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">5 Sites</p>
 						</td>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>1 Year Premium Support</center>
-						</td>
-					</tr>
-					<tr>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>Automatic Updates</center>
-						</td>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>Automatic Updates</center>
-						</td>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>Automatic Updates</center>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">30 Sites</p>
 						</td>
 					</tr>
 					<tr>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>All Extensions</center>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">1 Year Premium Support</p>
 						</td>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>All Extensions</center>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">1 Year Premium Support</p>
 						</td>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center>All Extensions</center>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">1 Year Premium Support</p>
 						</td>
 					</tr>
 					<tr>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center><a href="https://jeffmatson.net/downloads/wp-sms-notifications-pro/">Upgrade
-							                                                                             Now!</a>
-							</center>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">Automatic Updates</p>
 						</td>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center><a href="https://jeffmatson.net/downloads/wp-sms-notifications-pro/">Upgrade
-							                                                                             Now!</a>
-							</center>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">Automatic Updates</p>
 						</td>
-						<td style="font-family:Arial, sans-serif;font-size:14px;padding:10px 5px;border-style:solid;border-width:1px;overflow:hidden;word-break:normal;">
-							<center><a href="https://jeffmatson.net/downloads/wp-sms-notifications-pro/">Upgrade
-							                                                                             Now!</a>
-							</center>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">Automatic Updates</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">All Extensions</p>
+						</td>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">All Extensions</p>
+						</td>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;">All Extensions</p>
+						</td>
+					</tr>
+					<tr>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;"><a
+									href="https://jeffmatson.net/downloads/wp-sms-notifications-pro/">Upgrade Now!</a>
+							</p>
+						</td>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;"><a
+									href="https://jeffmatson.net/downloads/wp-sms-notifications-pro/">Upgrade Now!</a>
+							</p>
+						</td>
+						<td style="padding:10px 5px;border: 1px solid;overflow:hidden;word-break:normal;">
+							<p style="text-align: center;"><a
+									href="https://jeffmatson.net/downloads/wp-sms-notifications-pro/">Upgrade Now!</a>
+							</p>
 						</td>
 					</tr>
 				</table>
@@ -179,8 +183,5 @@ if ( is_admin() && current_user_can( 'manage_options' ) ) {
 		</div>
 	<?php
 	}
-} else {
-	return;
 }
 ?>
-

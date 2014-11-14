@@ -39,9 +39,9 @@ function update_wp_sms_settings() {
   do_action('wp_sms_register');
 }
 
-function add_action_link( $links, $file ) {
- $settings_link = '<a href="tools.php?page=wp-sms-notifications">Settings</a>';
-  array_unshift( $links, $settings_link );
+function add_action_link( $links ) {
+	$settings_link = '<a href="tools.php?page=wp-sms-notifications">Settings</a>';
+	array_unshift( $links, $settings_link );
 return $links;
 } 
 add_filter( 'plugin_action_links_' . $wp_sms_file_location, 'add_action_link', 10, 2 );
@@ -73,7 +73,7 @@ function wp_sms_notifications_menu() {
     <form method="post" action="options.php">
       <?php
       if (empty($active_tab)) {
-        $active_tab == 'general';
+        $active_tab = 'general';
       }
       if( $active_tab == 'general' ) {
         ?>
