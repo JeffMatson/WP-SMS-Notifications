@@ -4,7 +4,7 @@ Contributors: JeffMatson
 Tags: SMS, text messages, notifications
 Requires at least: 2.8
 Tested up to: 4.0
-Stable tag: 2.0
+Stable tag: 2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,13 @@ Features:
 All carriers support the ability to send text messages via email.  We have simply tapped into that to send all notifications.
 
 == Changelog ==
+
+= 2.1 =
+* SMS notifications are now fully managed on an individual user basis.
+* Admin users can control whop is able to configure notifications.
+* Pro license now available.
+* Security fixes.
+Props: Chris Wiegman
 
 = 2.0 =
 * Carrier list is now easier to manage
