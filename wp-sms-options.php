@@ -43,7 +43,7 @@ if ( is_admin() && current_user_can( 'manage_options' ) ) {
 							}
 
 							else {
-								delete_user_meta( $user->ID, $sms_user_selection);
+								delete_user_meta( $user->ID, 'wp_sms_allowed');
 							} ?>
 
 						<tr valign="top">
