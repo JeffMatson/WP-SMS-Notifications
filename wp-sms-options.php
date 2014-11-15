@@ -29,6 +29,9 @@ if ( is_admin() && current_user_can( 'manage_options' ) ) {
 
 			<div style="margin-right:auto; float:left;">
 				<form method="post" action="<?php admin_url( 'tools.php?page=wp-sms-notifications' ); ?>">
+
+					<?php do_action( 'wp_sms_extenstions_license' ); ?>
+
 					<h3>Allow these users to configure SMS notifications:</h3>
 
 					<table class="form-table">

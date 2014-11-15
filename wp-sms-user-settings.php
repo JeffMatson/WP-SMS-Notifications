@@ -124,7 +124,7 @@ if ( '1' == get_user_meta( $wp_sms_user_ID, 'wp_sms_allowed', 'true' ) ) {
 					</label>
 				</td>
 			</tr>
-			<?php ?>
+			<?php do_action( 'add_wp_sms_option', $user ); ?>
 		</table>
 	<?php }
 
@@ -206,7 +206,9 @@ if ( '1' == get_user_meta( $wp_sms_user_ID, 'wp_sms_allowed', 'true' ) ) {
 		} else {
 			delete_user_meta( $user_id, 'wp_sms_on_theme_update' );
 		}
-		return false;
+
+		do_action( 'wp_sms_save_user_options', $user_id );
+
 	}
 } else {
 	return;
