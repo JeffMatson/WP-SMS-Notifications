@@ -3,8 +3,8 @@ SMS notifications for WordPress
 Contributors: JeffMatson
 Tags: SMS, text messages, notifications
 Requires at least: 2.8
-Tested up to: 4.0
-Stable tag: 2.1
+Tested up to: 4.1
+Stable tag: 2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,6 +38,10 @@ Features:
 All carriers support the ability to send text messages via email.  We have simply tapped into that to send all notifications.
 
 == Changelog ==
+
+= 2.2 =
+* Settings panel UI has been re-written for easier management
+* Changes to all users can be done from within the settings panel
 
 = 2.1 =
 * SMS notifications are now fully managed on an individual user basis.
